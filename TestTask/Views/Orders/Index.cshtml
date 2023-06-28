@@ -1,0 +1,66 @@
+﻿@model IEnumerable<TestTask.Models.Order>
+
+@{
+    ViewData["Title"] = "Orders list";
+}
+
+<h1>Orders list</h1>
+
+<p>
+    <a asp-action="Create">Create a new order</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order's number
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SenderCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SenderAdress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiverCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiverAdress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiverCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiverAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupDate)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
